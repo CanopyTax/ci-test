@@ -21,7 +21,7 @@ deployment:
   integ:
     branch: master
     commands:
-      echo "I did stuff"
+      - echo "I did stuff"
   stage:
     commands:
-      echo "hello there"
+      - echo "hello there"
