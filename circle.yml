@@ -23,5 +23,6 @@ deployment:
     commands:
       - echo "I did stuff"
   stage:
+    branch: master
     commands:
       - echo "hello there"
