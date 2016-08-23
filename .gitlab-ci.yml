@@ -1,11 +1,40 @@
 image: canopytax/python-base
 
+stages:
+  - build
+  - test
+  - register
+  - deploy
+
 services:
   - postgres:9.5
 
-before_script:
+build:
+  stage: build
+  script:
   - python3 -m pip install -r requirements.txt
 
-test:
+teststuff:
+  stage: test
   script:
   - py.test
+
+testslow:
+  stage: test
+  script:
+  - py.test
+
+docker:
+  stage: register
+  image: canopytax/alpine
+  script:
+  - which python3
+  when: always
+
+production:
+  stage: deploy
+  script:
+  - echo "hello"
+  when: manual
+
+
