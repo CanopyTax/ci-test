@@ -1,25 +1,27 @@
-image: canopytax/python-base
-
 stages:
   - build
   - test
   - register
   - deploy
 
-services:
-  - postgres:9.5
-
 build:
   stage: build
+  image: docker:lates
+  services:
+  - docker:dind
+
   script:
-  - python3 -m pip install -r requirements.txt
+  - docker info
+  - docker build -t my-ci-test-image:2 .
 
 teststuff:
+  image: my-ci-test-image:2
   stage: test
   script:
   - py.test
 
 testslow:
+  image: my-ci-test-image:2
   stage: test
   script:
   - py.test
