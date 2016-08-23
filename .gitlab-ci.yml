@@ -6,7 +6,7 @@ stages:
 
 build:
   stage: build
-  image: docker:lates
+  image: docker:latest
   services:
   - docker:dind
 
