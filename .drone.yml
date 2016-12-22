@@ -1,14 +1,13 @@
-pipeline:
-  build:
-    image: python
-    commands:
-      - pip install -r requirements.txt
+build:
+  image: python
+  commands:
+    - pip install -r requirements.txt
 
-  publish:
-    docker:
-      username: $$DOCKER_USERNAME
-      password: $$DOCKER_PASSWORD
-      repo: canopytax/ci-test
-      tag: latest
-      file: Dockerfile
-      insecure: false
+publish:
+  docker:
+    username: $$DOCKER_USERNAME
+    password: $$DOCKER_PASSWORD
+    repo: canopytax/ci-test
+    tag: latest
+    file: Dockerfile
+    insecure: false
