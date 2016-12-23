@@ -11,3 +11,7 @@ publish:
     tag: latest
     file: Dockerfile
     insecure: false
+    when:
+      event: deployment
+      environment: docker
+   
